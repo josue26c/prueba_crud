@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-header">        
+        <a class="btn btn-success" routerLink="/agregar-libro/">Nuevo</a> 
+    </div>
+    <div class="card-body">
+        <h1>Libros</h1>
+        <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre del Libro</th>
+                    <th>Descripcion</th>
+                    <th>Autor</th>
+                    <th>N° de Ejemplares</th>
+                    <th>Costo</th>
+                    <th>Fecha de Publicación</th>                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let libro of Libros; let iControl=index">
+                    <td>{{libro.nombre}}</td>
+                    <td>{{libro.descripcion}}</td>
+                    <td>{{libro.autor}}</td>
+                    <td>{{libro.numero_ejemplares}}</td>
+                    <td>{{libro.costo}}</td>
+                    <td>{{libro.fecha_publicacion | date:'yyyy-MM-dd HH:mm:ss'}}</td>                    
+                    <td><a class="btn btn-info" routerLink="/editar-libro/{{libro.id}}">Editar</a> |
+                        <a class="btn btn-danger" (click)="borrarRegistro(libro.id,iControl)" role="button">Borrar</a></td>
+                </tr>                
+            </tbody>
+        </table>
+    </div>
+    </div>
+    
+</div>
